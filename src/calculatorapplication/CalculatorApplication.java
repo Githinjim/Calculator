@@ -1,23 +1,17 @@
 package calculatorapplication;
 
-
-/**
-* This program is Simple Calculator. It can evaluate numbers using GUI program.
-* @author Michael Githinji
-* @version CS 211 6 November 2014
-*/
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 /**
-* create a class that is a subclass of JFrame  
+* 
 * the new class will have two interfaces added: 
 * the WindowListener and the ActionListener     
 * This is class for making display of the calculator
 * @author Michael Githinji
-* @version CS 211 2014.11.6
+* @version CS 480 
+* @since 11/2/2016
 */       
 public class CalculatorApplication extends JFrame implements WindowListener,ActionListener {
         private static final long serialVersionUID = 1L;
@@ -55,9 +49,7 @@ public class CalculatorApplication extends JFrame implements WindowListener,Acti
         }
         
         /**
-        * constructor for jframeTest                                   
-        * This method is for set up layout, button
-        * @param title get title 
+        * Calculator Application class
         */        
         public CalculatorApplication (String title) {
 
@@ -142,11 +134,7 @@ public class CalculatorApplication extends JFrame implements WindowListener,Acti
         }
         
         
-        /**
-        * these are the events that are acting on the window                      
-        * these are required in order to satisfy the overriding of the interface 
-        * events which are part of the WindowListener                                      
-        * Open the frame and report that it was completed in the textbox  
+        /* 
         * This method is window action when window is open
         * @param e this is action when window is open
         */
@@ -280,13 +268,13 @@ public class CalculatorApplication extends JFrame implements WindowListener,Acti
                 if("=".equals(e.getActionCommand())) {  // when "=" is typed.
                     String equal = this.getText();  // get text 
                     String input = Box1.getText();  // show expression to Box1
-                    Evaluator calculate = new Evaluator(input);  // call Evaluator for get get RPN and result
+                    Evaluator calculate = new Evaluator(input);  // call Evaluator for get RPN and result
                     String RPN = calculate.Convertor();  // get RPN from convertor method in evaluator class
                     String result = calculate.Compute(RPN); // set RPN as String
                     expression(equal);  // call expression method in evaluator class
                     Box2.setText(RPN);  // show RPN to Box2
                     if(result.equals("DNE")) { // This is case for when the calculation is illegal
-                        Box3.setText("ERROR! select C button to reculculate");
+                        Box3.setText("ERROR! You can't perform that arithmetic");
                     } else {
                         Box3.setText(result);   // show result to Box3
                     }
