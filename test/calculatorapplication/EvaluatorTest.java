@@ -45,8 +45,7 @@ public class EvaluatorTest {
         int process1 = 0;
         Evaluator instance = null;
         instance.Operator(operator, process1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
